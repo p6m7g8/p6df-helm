@@ -71,3 +71,17 @@ p6df::prompt::helm::line() {
 
     p6_helm_prompt_info
 }
+
+p6df::modules::helm::kubernetes::dashboard::token() {
+
+  local secret
+  secret=$(kubectl -n kube-system get secret | grep eks-admin | awk '{ print $1 }')
+
+  kubectl -n kube-systemd describe secret "$secret" | awk '/^token/ { print $2 }'
+}
+
+p6df::modules::helm::jenkins::admin:password() {
+
+  printf $(kubectl get secret --namespace jenkins jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);p6_echo
+}
+
