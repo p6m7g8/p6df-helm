@@ -1,0 +1,24 @@
+---
+master:
+  installPlugins:
+    - kubernetes:1.27.1
+    - git:4.4.2
+    - configuration-as-code:1.43
+    - workflow-job:2.39
+    - workflow-aggregator:2.6
+    - credentials-binding:1.23
+  additionalPlugins:
+    - job-dsl:1.77
+    - github:1.31.0
+    - jira:2.176.4
+    - thinbackup:1.10
+    - slack:2.222.4
+    - ws-cleanup:2.121
+  JCasC:
+    configScripts:
+      welcome-message: |-
+        jenkins:
+          systemMessage: This Jenkins is configured and managed as code!
+      jobs: |-
+        jobs:
+          - url: URL
