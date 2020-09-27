@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/p6m7g8/p6df-helm/compare/v1.0.1...v1.0.2) (2020-09-27)
+
+
+### Bug Fixes
+
+* **api/p6df::modules::helm::external-dashboard::chart::add:** removes extra ' ([#5](https://github.com/p6m7g8/p6df-helm/issues/5)) ([35a75c8](https://github.com/p6m7g8/p6df-helm/commit/35a75c8c6d2ef85b886a1cea275e0a918075ded0))
+* **module:** robbyrussell -> ohmyzsh ([#6](https://github.com/p6m7g8/p6df-helm/issues/6)) ([930551d](https://github.com/p6m7g8/p6df-helm/commit/930551de1a1656cc2ec790c03c5eeac8ddcecc3e))
+
 ### 1.0.1 (2020-09-20)
 
 
