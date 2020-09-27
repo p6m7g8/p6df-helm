@@ -16,7 +16,7 @@ p6df::modules::helm::version() { echo "0.0.1" }
 ######################################################################
 p6df::modules::helm::deps() {
     ModuleDeps=(
-        robbyrussell/oh-my-zsh:plugins/helm
+        ohmyzsh/ohmyzsh:plugins/helm
         p6m7g8/p6helm
     )
 }
