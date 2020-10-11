@@ -7,6 +7,6 @@
 - p6df::modules::helm::jenkins::chart::add()
 - p6df::modules::helm::kubernetes::dashboard::token()
 - p6df::modules::helm::langs()
+- p6df::modules::helm::prompt::line()
 - p6df::modules::helm::version()
-- p6df::prompt::helm::line()
 
