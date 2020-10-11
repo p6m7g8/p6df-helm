@@ -16,8 +16,9 @@ p6df::modules::helm::version() { echo "0.0.1" }
 ######################################################################
 p6df::modules::helm::deps() {
     ModuleDeps=(
-        ohmyzsh/ohmyzsh:plugins/helm
+        p6m7g8/p6df-go
         p6m7g8/p6helm
+        ohmyzsh/ohmyzsh:plugins/helm
     )
 }
 
@@ -67,11 +68,11 @@ p6df::modules::helm::init() {
 ######################################################################
 #<
 #
-# Function: p6df::prompt::helm::line()
+# Function: p6df::modules::helm::prompt::line()
 #
 #>
 ######################################################################
-p6df::prompt::helm::line() {
+p6df::modules::helm::prompt::line() {
 
     p6_helm_prompt_info
 }
