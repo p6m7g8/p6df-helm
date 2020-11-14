@@ -102,8 +102,8 @@ p6df::modules::helm::jenkins::admin::password() {
 # Function: p6df::modules::helm::external-dashboard::chart::add(zone_id, role_arn)
 #
 #  Args:
-#	zone_id - 
-#	role_arn - 
+#	zone_id -
+#	role_arn -
 #
 #>
 ######################################################################
