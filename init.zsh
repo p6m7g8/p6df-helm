@@ -1,4 +1,3 @@
-
 ######################################################################
 #<
 #
@@ -7,11 +6,11 @@
 #>
 ######################################################################
 p6df::modules::helm::deps() {
-    ModuleDeps=(
-        p6m7g8/p6df-go
-        p6m7g8/p6helm
-        ohmyzsh/ohmyzsh:plugins/helm
-    )
+  ModuleDeps=(
+    p6m7g8/p6df-go
+    p6m7g8/p6helm
+    ohmyzsh/ohmyzsh:plugins/helm
+  )
 }
 
 ######################################################################
@@ -23,7 +22,7 @@ p6df::modules::helm::deps() {
 ######################################################################
 p6df::modules::helm::external::brew() {
 
-    brew install helm
+  brew install helm
 }
 
 ######################################################################
@@ -35,12 +34,13 @@ p6df::modules::helm::external::brew() {
 ######################################################################
 p6df::modules::helm::langs() {
 
-  helm repo add bitnami              https://charts.bitnami.com/bitnami
-  helm repo add incubator            https://storage.googleapis.com/kubernetes-charts-incubator
-  helm repo add stable               https://kubernetes-charts.storage.googleapis.com
-  helm repo add kubernetes-dashoard  https://kubernetes.github.io/dashboard/
-  helm repo add jenkinsci            https://charts.jenkins.io
-  helm repo add nginx                https://helm.nginx.com/stable
+  helm repo add bitnami https://charts.bitnami.com/bitnami
+  helm repo add incubator https://storage.googleapis.com/kubernetes-charts-incubator
+  helm repo add jenkinsci https://charts.jenkins.io
+  helm repo add kubernetes-dashoard https://kubernetes.github.io/dashboard
+  helm repo add nginx https://helm.nginx.com/stable
+  helm repo add prometheus https://prometheus-community.github.io/helm-charts
+  helm repo add stable https://kubernetes-charts.storage.googleapis.com
 }
 
 ######################################################################
@@ -66,7 +66,7 @@ p6df::modules::helm::init() {
 ######################################################################
 p6df::modules::helm::prompt::line() {
 
-    p6_helm_prompt_info
+  p6_helm_prompt_info
 }
 
 ######################################################################
@@ -93,13 +93,16 @@ p6df::modules::helm::kubernetes::dashboard::token() {
 ######################################################################
 p6df::modules::helm::jenkins::admin::password() {
 
-  printf $(kubectl -n jenkins get secret jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);p6_echo
+  local pass
+  pass=$(printf $(kubectl -n jenkins get secret jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode))
+  p6_env_export "JENKINS_PASS" "$pass"
+  p6_echo "$pass"
 }
 
 ######################################################################
 #<
 #
-# Function: p6df::modules::helm::external-dashboard::chart::add(zone_id, role_arn)
+# Function: p6df::modules::helm::external-dns::chart::add(zone_id, role_arn)
 #
 #  Args:
 #	zone_id -
@@ -107,7 +110,7 @@ p6df::modules::helm::jenkins::admin::password() {
 #
 #>
 ######################################################################
-p6df::modules::helm::external-dashboard::chart::add() {
+p6df::modules::helm::external-dns::chart::add() {
   local zone_id="$1"
   local role_arn="$2"
 
@@ -127,5 +130,5 @@ p6df::modules::helm::jenkins::chart::add() {
   str=$(p6_template_process "share/jenkins-chart-values.yaml.in" "URL=x")
   p6_file_write "/tmp/jenkins-chart-values.yaml"
 
-  helm install -f "/tmp/jenkins-chart-values.yaml" jenkins jenkinsci/jenkins  
+  helm install -f "/tmp/jenkins-chart-values.yaml" jenkins jenkinsci/jenkins
 }
