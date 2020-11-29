@@ -79,9 +79,9 @@ p6df::modules::helm::prompt::line() {
 p6df::modules::helm::kubernetes::dashboard::token() {
 
   local secret
-  secret=$(kubectl -n kube-system get secret | grep eks-admin | awk '{ print $1 }')
+  secret=$(kubectl -n kube-system get secret | awk '/eks-admin/ { print $1 }')
 
-  kubectl -n kube-systemd describe secret "$secret" | awk '/^token/ { print $2 }'
+  kubectl -n kube-system describe secret "$secret" | awk '/^token/ { print $2 }'
 }
 
 ######################################################################
