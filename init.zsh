@@ -40,7 +40,7 @@ p6df::modules::helm::langs() {
   helm repo add kubernetes-dashoard https://kubernetes.github.io/dashboard
   helm repo add nginx https://helm.nginx.com/stable
   helm repo add prometheus https://prometheus-community.github.io/helm-charts
-  helm repo add stable https://kubernetes-charts.storage.googleapis.com
+  helm repo add stable https://charts.helm.sh/stable
 }
 
 ######################################################################
