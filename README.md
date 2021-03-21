@@ -38,9 +38,11 @@
 
 - [Change Log](CHANGELOG.md)
 
-### Usage
+## Usage
 
-#### init.zsh:
+### p6df-helm:
+
+#### p6df-helm/init.zsh:
 
 - p6df::modules::helm::deps()
 - p6df::modules::helm::external-dns::chart::add(zone_id, role_arn)
@@ -51,6 +53,7 @@
 - p6df::modules::helm::kubernetes::dashboard::token()
 - p6df::modules::helm::langs()
 - p6df::modules::helm::prompt::line()
+
 
 
 ## Author
