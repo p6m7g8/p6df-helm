@@ -35,7 +35,6 @@ p6df::modules::helm::external::brew() {
 p6df::modules::helm::langs() {
 
   helm repo add bitnami https://charts.bitnami.com/bitnami
-  helm repo add incubator https://storage.googleapis.com/kubernetes-charts-incubator
   helm repo add jenkinsci https://charts.jenkins.io
   helm repo add kubernetes-dashoard https://kubernetes.github.io/dashboard
   helm repo add nginx https://helm.nginx.com/stable
@@ -94,7 +93,7 @@ p6df::modules::helm::kubernetes::dashboard::token() {
 p6df::modules::helm::jenkins::admin::password() {
 
   local pass
-  pass=$(printf $(kubectl -n jenkins get secret jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode))
+  pass=$(kubectl exec --namespace jenkins -it svc/jenkins -c jenkins -- /bin/cat /run/secrets/chart-admin-password)
   p6_env_export "JENKINS_PASS" "$pass"
   p6_echo "$pass"
 }
