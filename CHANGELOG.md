@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.1](https://github.com/p6m7g8/p6df-helm/compare/v2.1.0...v2.1.1) (2021-04-04)
+
+
+* new cli for admin pw, with newer chart ([#20](https://github.com/p6m7g8/p6df-helm/issues/20)) ([e9f4419](https://github.com/p6m7g8/p6df-helm/commit/e9f4419982c05009f14d4d6c91dc2577ada4dcad))
+* **README:** updates generator ([#19](https://github.com/p6m7g8/p6df-helm/issues/19)) ([862e4e6](https://github.com/p6m7g8/p6df-helm/commit/862e4e6e7801ddea6fd9b5a4894ccf64e6855ad8))
+* Coc -> .github ([7251fb4](https://github.com/p6m7g8/p6df-helm/commit/7251fb43365ee0948ed40d14d62b838d890f773b))
+
 ## [2.1.0](https://github.com/p6m7g8/p6df-helm/compare/v2.0.0...v2.1.0) (2020-12-06)
 
 
